@@ -1,0 +1,18 @@
+.leader {
+  color: rgb(200, 0, 0);
+}
+
+.total-pending {
+  color: gray;
+}
+
+span {
+  cursor: pointer;
+}
+
+span.disabled {
+  cursor: default;
+  color: gray;
+}
+
+/*# sourceMappingURL=Player.css.map */
