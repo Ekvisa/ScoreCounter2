@@ -1,36 +1,36 @@
 import React from "react";
 import { GameState } from "../types";
+import "./Control.scss";
 
 type ControlProps = {
-  addRound: () => void;
   finishGame: () => void;
-  resetGame: () => void;
-  canEdit: boolean;
+  resetScores: () => void;
+  newGame: () => void;
+  disabled: boolean;
   gameState: GameState;
 };
 
 const Control = ({
-  addRound,
   finishGame,
-  resetGame,
-  canEdit,
+  resetScores,
+  newGame,
+  disabled,
   gameState,
 }: ControlProps) => {
   return (
     <div className="control">
       <button
-        onClick={addRound}
-        disabled={!canEdit || gameState === "finished"}
-      >
-        Add Round
-      </button>
-      <button
         onClick={finishGame}
-        disabled={!canEdit || gameState === "finished"}
+        disabled={disabled || gameState === "finished"}
       >
-        Finish
+        Завершить игру
       </button>
-      <button onClick={resetGame}>New Game</button>
+      <button onClick={resetScores} disabled={gameState !== "finished"}>
+        Сброс очков
+      </button>
+      <button onClick={newGame} disabled={gameState !== "finished"}>
+        Новая игра
+      </button>
     </div>
   );
 };

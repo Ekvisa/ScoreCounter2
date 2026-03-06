@@ -3,63 +3,85 @@ import { PlayerType, GameState } from "../types";
 import Player from "../Player/Player";
 import Control from "../Control/Control";
 import { countPlayerTotal, getMaxScore } from "../utils";
+import "./Table.scss";
 
 type TableProps = {
   players: PlayerType[];
-  updateScore: (playerId: string, value: number | null) => void;
+  updateScore: (id: string, roundIndex: number, value: number) => void;
   addRound: () => void;
   finishGame: () => void;
-  resetGame: () => void;
-  currentRoundIndex: number | null;
-  allFilled: boolean;
+  resetScores: () => void;
+  newGame: () => void;
+
   gameState: GameState;
 };
 
-const Table = ({
+function Table({
   players,
   updateScore,
   addRound,
   finishGame,
-  resetGame,
-  currentRoundIndex,
-  allFilled,
+  resetScores,
+  newGame,
   gameState,
-}: TableProps) => {
+}: TableProps) {
+  const roundsCount = players[0]?.rounds.length ?? 0;
+  const currentRound = roundsCount - 1;
+
+  const hasEmpty = players.some((p) => p.rounds.includes(null));
+
   const maxScore = getMaxScore(players);
 
+  const tableWrap = document.querySelector(".tableWrapper");
+  if (tableWrap) {
+    tableWrap.scrollLeft = tableWrap.scrollWidth;
+  }
+
   return (
-    <div className="table">
-      <table>
-        <thead>
-          <tr>
-            <th>Players</th>
-            {players[0]?.rounds.map((_, i) => (
-              <th key={i}>{`Round #${i + 1}`}</th>
+    <div className="scene">
+      <div className="tableWrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Игроки</th>
+              {Array.from({ length: roundsCount }).map((_, i) => (
+                <th key={i}>Кон {i + 1}</th>
+              ))}
+              <th>
+                <button //Add round
+                  onClick={addRound}
+                  disabled={hasEmpty || gameState === "finished"}
+                >
+                  +
+                </button>
+              </th>
+              <th>Итог</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {players.map((p) => (
+              <Player
+                key={p.id}
+                player={p}
+                currentRound={currentRound}
+                updateScore={updateScore}
+                isLeader={countPlayerTotal(p) === maxScore}
+                gameState={gameState}
+              />
             ))}
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {players.map((p) => (
-            <Player
-              key={p.id}
-              player={p}
-              updateScore={updateScore}
-              currentRoundIndex={currentRoundIndex}
-              isLeader={countPlayerTotal(p) === maxScore}
-            />
-          ))}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
       <Control
-        addRound={addRound}
         finishGame={finishGame}
-        resetGame={resetGame}
-        canEdit={allFilled}
+        resetScores={resetScores}
+        newGame={newGame}
+        disabled={hasEmpty}
         gameState={gameState}
       />
     </div>
   );
-};
+}
 
 export default Table;

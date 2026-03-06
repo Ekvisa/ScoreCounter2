@@ -1,39 +1,44 @@
 import React from "react";
 import ScoreCell from "../ScoreCell/ScoreCell";
-import { PlayerType } from "../types";
+import { GameState, PlayerType } from "../types";
 import { countPlayerTotal } from "../utils";
+import "./Player.css";
 
-type PlayerRowProps = {
+type PlayerProps = {
   player: PlayerType;
-  updateScore: (playerId: string, value: number | null) => void;
-  currentRoundIndex: number | null;
+  currentRound: number;
+
+  updateScore: (id: string, roundIndex: number, value: number) => void;
+
   isLeader: boolean;
+  gameState: GameState;
 };
 
-const PlayerRow = ({
+function Player({
   player,
+  currentRound,
   updateScore,
-  currentRoundIndex,
   isLeader,
-}: PlayerRowProps) => {
-  const total = countPlayerTotal(player);
-  const totalPending = player.rounds.some((r) => r === null);
-
+  gameState,
+}: PlayerProps) {
   return (
     <tr className={isLeader ? "leader" : ""}>
       <td>{player.name}</td>
+
       {player.rounds.map((r, i) => (
         <td key={i}>
           <ScoreCell
             value={r}
-            onSave={(value) => updateScore(player.id, value)}
-            editable={i === currentRoundIndex}
+            editable={i === currentRound && gameState === "playing"}
+            onSave={(v) => updateScore(player.id, i, v ?? 0)}
           />
         </td>
       ))}
-      <td style={{ color: totalPending ? "grey" : "black" }}>{total}</td>
+      <td></td>
+
+      <td>{countPlayerTotal(player)}</td>
     </tr>
   );
-};
+}
 
-export default PlayerRow;
+export default Player;

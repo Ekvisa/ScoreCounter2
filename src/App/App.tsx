@@ -3,76 +3,72 @@ import Setup from "../Setup/Setup";
 import Table from "../Table/Table";
 import { PlayerType, GameState } from "../types";
 import { sortByScore } from "../utils";
+import "./App.scss";
 
 function App() {
   const [players, setPlayers] = useState<PlayerType[]>([]);
   const [gameState, setGameState] = useState<GameState>("setup");
-  const [currentRoundIndex, setCurrentRoundIndex] = useState<number | null>(
-    null,
-  );
 
-  const handleStart = (names: string[]) => {
-    const newPlayers: PlayerType[] = names.map((name) => ({
+  const startGame = (names: string[]) => {
+    const prepared = names.map((name) => ({
       id: crypto.randomUUID(),
       name,
       rounds: [],
     }));
-    setPlayers(newPlayers);
-    setCurrentRoundIndex(null);
+
+    setPlayers(prepared);
     setGameState("playing");
   };
 
-  const addRound = () => {
-    setPlayers((prev) =>
-      prev.map((p) => ({ ...p, rounds: [...p.rounds, null] })),
-    );
-    setCurrentRoundIndex(players[0]?.rounds.length ?? 0);
-  };
-
-  const updateScore = (playerId: string, value: number | null) => {
-    if (currentRoundIndex === null) return;
+  const updateScore = (id: string, roundIndex: number, value: number) => {
     setPlayers((prev) =>
       prev.map((p) =>
-        p.id === playerId
+        p.id === id
           ? {
               ...p,
-              rounds: p.rounds.map((r, i) =>
-                i === currentRoundIndex ? value : r,
-              ),
+              rounds: p.rounds.map((r, i) => (i === roundIndex ? value : r)),
             }
           : p,
       ),
     );
   };
 
+  const addRound = () => {
+    setPlayers((prev) =>
+      prev.map((p) => ({
+        ...p,
+        rounds: [...p.rounds, null],
+      })),
+    );
+  };
+
   const finishGame = () => {
     setPlayers((prev) => sortByScore(prev));
     setGameState("finished");
-    setCurrentRoundIndex(null);
   };
 
-  const resetGame = () => {
+  const resetScores = () => {
+    setPlayers((prev) => prev.map((p) => ({ ...p, rounds: [] })));
+    setGameState("playing");
+  };
+
+  const newGame = () => {
     setPlayers([]);
-    setCurrentRoundIndex(null);
     setGameState("setup");
   };
 
-  const allFilled = players.every(
-    (p) => currentRoundIndex === null || p.rounds[currentRoundIndex] !== null,
-  );
-
   return (
     <div className="App">
-      {gameState === "setup" && <Setup onStart={handleStart} />}
+      {gameState === "setup" && <Setup onStart={startGame} />}
+
       {gameState !== "setup" && (
         <Table
           players={players}
           updateScore={updateScore}
           addRound={addRound}
           finishGame={finishGame}
-          resetGame={resetGame}
-          currentRoundIndex={currentRoundIndex}
-          allFilled={allFilled}
+          resetScores={resetScores}
+          newGame={newGame}
           gameState={gameState}
         />
       )}

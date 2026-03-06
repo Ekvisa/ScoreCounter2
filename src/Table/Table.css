@@ -1,0 +1,28 @@
+.scene {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.scene .tableWrapper {
+  overflow-x: auto;
+}
+.scene .tableWrapper table {
+  background-image: linear-gradient(270deg, #2e9aff, #f498ad 70%);
+}
+.scene .tableWrapper table input {
+  width: 4em;
+}
+.scene .tableWrapper table tr th,
+.scene .tableWrapper table tr td {
+  padding: 0.5em;
+  text-align: center;
+}
+.scene .tableWrapper table tr th:first-child,
+.scene .tableWrapper table tr td:first-child {
+  position: sticky;
+  left: 0;
+  text-align: left;
+  background-color: #f1f1f1;
+}
+
+/*# sourceMappingURL=Table.css.map */

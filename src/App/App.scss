@@ -1,8 +1,21 @@
-/* .App {
-  text-align: center;
+.App {
+  font-family: "Fira Code", monospace;
+  margin: 1em;
+  font-size: 1.1em;
 }
 
-.App-logo {
+button {
+  font-family: "Fira Code", monospace;
+  font-size: 1.1em;
+  padding: 1em;
+  padding: 0.5em;
+  cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
