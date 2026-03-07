@@ -1,18 +1,5 @@
 .leader {
-  color: rgb(201, 70, 19);
-}
-
-.total-pending {
-  color: gray;
-}
-
-span {
-  cursor: pointer;
-}
-
-span.disabled {
-  cursor: default;
-  color: gray;
+  color: rgb(136, 24, 58);
 }
 
 /*# sourceMappingURL=Player.css.map */

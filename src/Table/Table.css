@@ -7,9 +7,9 @@
   overflow-x: auto;
 }
 .scene .tableWrapper table {
-  background-image: linear-gradient(270deg, #c1f6dd, rgb(72, 151, 77) 90vw);
+  background-image: linear-gradient(270deg, #118292, #82c1ae 90vw);
   border-collapse: collapse;
-  color: rgb(6, 76, 11);
+  color: white;
 }
 .scene .tableWrapper table input {
   width: 4em;
@@ -24,7 +24,7 @@
   position: sticky;
   left: 0;
   text-align: left;
-  background-color: #d0eecf;
+  background-color: #118292;
 }
 
 /*# sourceMappingURL=Table.css.map */

@@ -2,7 +2,7 @@ import React from "react";
 import ScoreCell from "../ScoreCell/ScoreCell";
 import { GameState, PlayerType } from "../types";
 import { countPlayerTotal } from "../utils";
-import "./Player.css";
+import "./Player.scss";
 
 type PlayerProps = {
   player: PlayerType;

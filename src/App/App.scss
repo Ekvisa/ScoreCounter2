@@ -1,5 +1,7 @@
+@use "../colors" as *;
+
 body {
-  background-color: #fff2db;
+  background: $bgColor;
 }
 .App {
   font-family: "Fira Code", monospace;
@@ -12,42 +14,19 @@ button {
   font-size: 1.1em;
   padding: 0.25em 0.5em;
   cursor: pointer;
+  background-color: $buttonsBGColor;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 3px 3px rgba(26, 71, 84, 0.27);
+  border: none;
   &:disabled {
     cursor: not-allowed;
+    opacity: 0.6;
+  }
+  &:enabled:hover {
+    box-shadow: 0 0 3px 3px rgba(26, 71, 84, 0.27);
+    filter: saturate(150%);
+  }
+  &.add {
+    background: $accentColor;
   }
 }
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

@@ -57,10 +57,11 @@ function Table({
                 ))}
               <th>
                 <button //Add round
+                  className="add"
                   onClick={addRound}
                   disabled={hasEmpty || gameState === "finished"}
                 >
-                  +
+                  ➕
                 </button>
               </th>
               <th>Итог</th>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Setup from "../Setup/Setup";
 import Table from "../Table/Table";
 import { PlayerType, GameState } from "../types";
@@ -6,8 +6,49 @@ import { sortByScore } from "../utils";
 import "./App.scss";
 
 function App() {
-  const [players, setPlayers] = useState<PlayerType[]>([]);
-  const [gameState, setGameState] = useState<GameState>("setup");
+  const [players, setPlayers] = useState<PlayerType[]>(() => {
+    const saved = localStorage.getItem("game");
+    if (saved) {
+      try {
+        return JSON.parse(saved).players ?? [];
+      } catch {
+        return [];
+      }
+    }
+    return [];
+  });
+
+  const [gameState, setGameState] = useState<GameState>(() => {
+    const saved = localStorage.getItem("game");
+    if (saved) {
+      try {
+        return JSON.parse(saved).gameState ?? "setup";
+      } catch {
+        return "setup";
+      }
+    }
+    return "setup";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("game", JSON.stringify({ players, gameState }));
+  }, [players, gameState]);
+
+  // useEffect(() => {
+  //   const saved = localStorage.getItem("game");
+  //   if (saved) {
+  //     const { players, gameState } = JSON.parse(saved);
+  //     setPlayers(players);
+  //     setGameState(gameState);
+  //   }
+  // }, []);
+
+  // const [players, setPlayers] = useState<PlayerType[]>([]);
+  // const [gameState, setGameState] = useState<GameState>("setup");
+
+  // useEffect(() => {
+  //   localStorage.setItem("game", JSON.stringify({ players, gameState }));
+  // }, [players, gameState]);
 
   const startGame = (names: string[]) => {
     const prepared = names.map((name) => ({
