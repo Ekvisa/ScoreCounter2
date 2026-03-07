@@ -23,17 +23,21 @@ function Player({
 }: PlayerProps) {
   return (
     <tr className={isLeader ? "leader" : ""}>
-      <td>{player.name}</td>
+      <td>
+        {player.name}
+        {isLeader && gameState === "finished" && " 🎉"}
+      </td>
 
-      {player.rounds.map((r, i) => (
-        <td key={i}>
-          <ScoreCell
-            value={r}
-            editable={i === currentRound && gameState === "playing"}
-            onSave={(v) => updateScore(player.id, i, v ?? 0)}
-          />
-        </td>
-      ))}
+      {gameState !== "finished" &&
+        player.rounds.map((r, i) => (
+          <td key={i}>
+            <ScoreCell
+              value={r}
+              editable={i === currentRound && gameState === "playing"}
+              onSave={(v) => updateScore(player.id, i, v ?? 0)}
+            />
+          </td>
+        ))}
       <td></td>
 
       <td>{countPlayerTotal(player)}</td>

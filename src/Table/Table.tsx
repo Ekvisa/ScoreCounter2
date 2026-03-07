@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PlayerType, GameState } from "../types";
 import Player from "../Player/Player";
 import Control from "../Control/Control";
@@ -32,10 +32,17 @@ function Table({
 
   const maxScore = getMaxScore(players);
 
-  const tableWrap = document.querySelector(".tableWrapper");
-  if (tableWrap) {
-    tableWrap.scrollLeft = tableWrap.scrollWidth;
-  }
+  // const tableWrap = document.querySelector(".tableWrapper");
+  // if (tableWrap) {
+  //   tableWrap.scrollLeft = tableWrap.scrollWidth;
+  // }
+
+  useEffect(() => {
+    const tableWrap = document.querySelector(".tableWrapper");
+    if (tableWrap) {
+      tableWrap.scrollLeft = tableWrap.scrollWidth;
+    }
+  }, [players]);
 
   return (
     <div className="scene">
@@ -44,9 +51,10 @@ function Table({
           <thead>
             <tr>
               <th>Игроки</th>
-              {Array.from({ length: roundsCount }).map((_, i) => (
-                <th key={i}>Кон {i + 1}</th>
-              ))}
+              {gameState !== "finished" &&
+                Array.from({ length: roundsCount }).map((_, i) => (
+                  <th key={i}>Кон&nbsp;{i + 1}</th>
+                ))}
               <th>
                 <button //Add round
                   onClick={addRound}
@@ -73,6 +81,12 @@ function Table({
           </tbody>
         </table>
       </div>
+      {/* <button //Add round
+        onClick={addRound}
+        disabled={hasEmpty || gameState === "finished"}
+      >
+        +
+      </button> */}
       <Control
         finishGame={finishGame}
         resetScores={resetScores}
