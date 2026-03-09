@@ -1,0 +1,174 @@
+#➕ Score counter 2.0
+
+A scoreboard app for card and board games ([live](https://ekvisa.github.io/ScoreCounter2/)). 
+
+ 
+
+##✨ Features
+
+- Add any number of players
+
+- Track scores across multiple rounds
+
+- Automatic total score calculation
+
+- Highlight the current leader
+
+- Sort players by score when the game ends
+
+- Reset scores or start a new game
+
+- Scores are saved in localStorage so the game survives page refresh
+
+##📋 How it works
+
+- Enter the number of players and their names.
+
+- Start the game.
+
+- Add rounds using the ➕ button.
+
+- Enter scores for each player in the current round.
+
+- When all scores are filled in, you can add another round or finish the game.
+
+- After finishing, players are sorted by total score and the winner is celebrated 🎉
+
+- Negative scores are allowed — useful if you need to correct something in a later round.
+
+##🛠 Technologies
+
+- React
+
+- TypeScript
+
+- SCSS
+
+- localStorage 
+
+ 
+
+##🎯 Project goals
+
+This project was created mainly for learning and experimenting with:
+
+- React component architecture
+
+- state management
+
+- controlled inputs
+
+- simple UI/UX decisions
+
+- keeping the codebase small and readable
+
+##🌿 Philosophy
+
+- friendly 
+- simplicity
+- minimal interface
+- clear logic
+- no unnecessary features
+
+ 
+
+ 
+
+
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+
+# Исторические даты - Тестовое задание
+
+Визуализация исторических событий на соответствующих временных сегментах.  
+Технологии: React, TypeScript, SCSS
+
+---
+
+## ⚙️ Функциональность
+
+- **Сегменты времени**: сегменты с заданными годами и метками (технологии, кино, литература и т.д.).  
+- **Круг с сегментами**: визуальное расположение сегментов на окружности. Активный сегмент всегда в первой четверти. Круг поворачивается анимацией при переключении сегментов.  
+- **Переключение сегментов**:  
+  - Стрелками навигации
+  - Клик по точкам на круге (на большом экране)
+  - Пагинация (на маленьком экране)  
+- **События внутри сегмента**:  
+  - Листаются с помощью Swiper  
+  - Фильтруются по годам и меткам  
+- **Годы** начала и конца активного сегмента.  
+
+---
+
+## 📋 Установка и запуск проекта
+
+- Клонируйте репозиторий:  
+```
+git clone https://github.com/Ekvisa/HistoricalEvents  
+```
+- Установите зависимости:  
+```
+npm install  
+```
+- Запустите проект:  
+```
+npm run dev  
+```
+Проект запустится на локальном сервере.  
+
+## 📚 Структура проекта  
+src/components/**App** — главный компонент, управляет активным сегментом  
+src/components/**Circle** — вращающийся круг с переключателями сегментов  
+src/components/**Events** — список событий внутри сегмента  
+src/components/**Years** — отображение диапазона лет сегмента  
+src/types/ и src/data/ — данные и типы  
+
+### 🖍 Доделать:
+- Исправить проблемные повороты между крайними сегментами на круге типа 6 - 2. Накапливаются большие углы, нормализация не помогает.

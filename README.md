@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+#➕ Score counter 2.0 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A scoreboard app for card and board games ([live](https://ekvisa.github.io/ScoreCounter2/)).  
 
-## Available Scripts
+ 
 
-In the project directory, you can run:
+##✨ Features  
 
-### `npm start`
+- Add any number of players  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Track scores across multiple rounds  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Automatic total score calculation  
 
-### `npm test`
+- Highlight the current leader  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Sort players by score when the game ends  
 
-### `npm run build`
+- Reset scores or start a new game  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Scores are saved in localStorage so the game survives page refresh  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+##📋 How it works  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Enter the number of players and their names.  
 
-### `npm run eject`
+- Start the game.  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Add rounds using the ➕ button.  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Enter scores for each player in the current round.  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- When all scores are filled in, you can add another round or finish the game.  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- After finishing, players are sorted by total score and the winner is celebrated 🎉  
 
-## Learn More
+- Negative scores are allowed — useful if you need to correct something in a later round.  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##🛠 Technologies  
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React  
+
+- TypeScript  
+
+- SCSS  
+
+- localStorage   
+
+ 
+
+##🎯 Project goals  
+
+This project was created mainly for learning and experimenting with:  
+
+- React component architecture  
+
+- state management  
+
+- controlled inputs  
+
+- simple UI/UX decisions  
+
+- keeping the codebase small and readable  
+
+##🌿 Philosophy  
+
+- friendly  
+
+- simplicity  
+
+- minimal interface  
+
+- clear logic  
+
+- no unnecessary features  
