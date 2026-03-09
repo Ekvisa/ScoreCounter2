@@ -1,0 +1,12 @@
+.playersCountSetup {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  span {
+    text-shadow: 4px 4px 3px rgba(26, 71, 84, 0.64);
+    font-size: 1.5em;
+  }
+  button {
+    font-weight: bold;
+  }
+}

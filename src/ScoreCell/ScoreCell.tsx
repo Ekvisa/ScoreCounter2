@@ -11,6 +11,10 @@ function ScoreCell({ value, editable, onSave }: ScoreCellProps) {
 
   return (
     <input
+      //   type="text"
+      //   inputMode="numeric"
+      //   value={value ?? ""}
+      //   onChange={(e) => Number(e.target.value)}
       type="number"
       value={value ?? ""}
       onChange={(e) => {

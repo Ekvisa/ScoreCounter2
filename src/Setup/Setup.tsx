@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Setup.scss";
 
 type SetupProps = {
   onStart: (names: string[]) => void;
@@ -22,13 +23,18 @@ function Setup({ onStart }: SetupProps) {
     <div className="Setup">
       <h2>Настройка игроков</h2>
       <p>Число игроков:</p>
-      <input
+      <div className="playersCountSetup">
+        <button onClick={() => handleCountChange(names.length - 1)}>-</button>
+        <span>{names.length}</span>
+        <button onClick={() => handleCountChange(names.length + 1)}>+</button>
+      </div>
+      {/* <input
         type="number"
         value={names.length}
         onChange={(e) => {
           handleCountChange(+e.target.value);
         }}
-      />
+      /> */}
       <p>Имена игроков:</p>
       <ul>
         {names.map((name, index) => (
