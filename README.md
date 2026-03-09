@@ -1,10 +1,8 @@
-#➕ Score counter 2.0 
+# ➕ Score counter 2.0 
 
 A scoreboard app for card and board games ([live](https://ekvisa.github.io/ScoreCounter2/)).  
 
- 
-
-##✨ Features  
+## ✨ Features  
 
 - Add any number of players  
 
@@ -20,7 +18,7 @@ A scoreboard app for card and board games ([live](https://ekvisa.github.io/Score
 
 - Scores are saved in localStorage so the game survives page refresh  
 
-##📋 How it works  
+## 📋 How it works  
 
 - Enter the number of players and their names.  
 
@@ -36,7 +34,7 @@ A scoreboard app for card and board games ([live](https://ekvisa.github.io/Score
 
 - Negative scores are allowed — useful if you need to correct something in a later round.  
 
-##🛠 Technologies  
+## 🛠 Technologies  
 
 - React  
 
@@ -46,9 +44,7 @@ A scoreboard app for card and board games ([live](https://ekvisa.github.io/Score
 
 - localStorage   
 
- 
-
-##🎯 Project goals  
+## 🎯 Project goals  
 
 This project was created mainly for learning and experimenting with:  
 
@@ -62,7 +58,7 @@ This project was created mainly for learning and experimenting with:
 
 - keeping the codebase small and readable  
 
-##🌿 Philosophy  
+## 🌿 Philosophy  
 
 - friendly  
 
