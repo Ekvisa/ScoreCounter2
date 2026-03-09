@@ -21,11 +21,8 @@ function ScoreCell({ value, editable, onSave }: ScoreCellProps) {
       value={draft}
       onChange={(e) => {
         const v = e.target.value;
-
         setDraft(v);
-
         const parsed = Number(v);
-
         if (!Number.isNaN(parsed)) {
           onSave(parsed);
         }
