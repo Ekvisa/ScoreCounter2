@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { GameState } from "../types";
 import "./Control.scss";
 
@@ -17,21 +16,8 @@ const Control = ({
   disabled,
   gameState,
 }: ControlProps) => {
-  //   const [confirmFinish, setConfirmFinish] = useState<boolean>(false);
-
   return (
     <div className="control">
-      {/* <button
-        onClick={() => {
-          if (!confirmFinish) {
-            setConfirmFinish(true);
-            return;
-          }
-          finishGame();
-        }} 
-      >*/}
-      {/* {confirmFinish ? "Точно закончить?" : "Закончить игру"}
-      </button> */}
       <button
         onClick={() => {
           window.confirm("Закончить игру?") && finishGame();

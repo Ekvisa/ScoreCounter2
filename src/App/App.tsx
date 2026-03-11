@@ -34,22 +34,6 @@ function App() {
     localStorage.setItem("game", JSON.stringify({ players, gameState }));
   }, [players, gameState]);
 
-  // useEffect(() => {
-  //   const saved = localStorage.getItem("game");
-  //   if (saved) {
-  //     const { players, gameState } = JSON.parse(saved);
-  //     setPlayers(players);
-  //     setGameState(gameState);
-  //   }
-  // }, []);
-
-  // const [players, setPlayers] = useState<PlayerType[]>([]);
-  // const [gameState, setGameState] = useState<GameState>("setup");
-
-  // useEffect(() => {
-  //   localStorage.setItem("game", JSON.stringify({ players, gameState }));
-  // }, [players, gameState]);
-
   const startGame = (names: string[]) => {
     const prepared = names.map((name) => ({
       id: crypto.randomUUID(),

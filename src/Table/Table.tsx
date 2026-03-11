@@ -32,11 +32,6 @@ function Table({
 
   const maxScore = getMaxScore(players);
 
-  // const tableWrap = document.querySelector(".tableWrapper");
-  // if (tableWrap) {
-  //   tableWrap.scrollLeft = tableWrap.scrollWidth;
-  // }
-
   useEffect(() => {
     const tableWrap = document.querySelector(".tableWrapper");
     if (tableWrap) {
@@ -82,12 +77,7 @@ function Table({
           </tbody>
         </table>
       </div>
-      {/* <button //Add round
-        onClick={addRound}
-        disabled={hasEmpty || gameState === "finished"}
-      >
-        +
-      </button> */}
+
       <Control
         finishGame={finishGame}
         resetScores={resetScores}

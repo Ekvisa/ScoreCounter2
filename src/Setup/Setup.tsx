@@ -28,13 +28,7 @@ function Setup({ onStart }: SetupProps) {
         <span>{names.length}</span>
         <button onClick={() => handleCountChange(names.length + 1)}>+</button>
       </div>
-      {/* <input
-        type="number"
-        value={names.length}
-        onChange={(e) => {
-          handleCountChange(+e.target.value);
-        }}
-      /> */}
+
       <p>Имена игроков:</p>
       <ul>
         {names.map((name, index) => (

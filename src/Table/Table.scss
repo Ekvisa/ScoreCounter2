@@ -32,30 +32,3 @@
     }
   }
 }
-
-// .tableWrapper {
-//   overflow-x: auto;
-
-//   table {
-//     border-collapse: separate; // важно для sticky
-
-//     th,
-//     td {
-//       background: white; // чтобы перекрывать прокручиваемые ячейки
-//     }
-
-//     th:first-child,
-//     td:first-child {
-//       position: sticky;
-//       left: 0;
-//       z-index: 2;
-//     }
-
-//     th:last-child,
-//     td:last-child {
-//       position: sticky;
-//       right: 0;
-//       z-index: 2;
-//     }
-//   }
-// }

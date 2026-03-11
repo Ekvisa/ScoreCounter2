@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { isNumericLiteral } from "typescript";
 
 type ScoreCellProps = {
   value: number | null;
@@ -28,16 +27,6 @@ function ScoreCell({ value, editable, onSave }: ScoreCellProps) {
         }
       }}
     />
-
-    // <input
-
-    //     type="text"
-    //     value={value ?? ""}
-    //     onChange={(e) => {
-    //       const v = Number(e.target.value);
-    //       onSave(v);
-    //     }}
-    // />
   );
 }
 
